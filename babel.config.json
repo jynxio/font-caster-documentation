@@ -1,0 +1,23 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {},
+                "useBuiltIns": false
+            }
+        ],
+        "@babel/preset-react"
+    ],
+    "plugins": [
+        [
+            "@babel/plugin-transform-runtime",
+            {
+                "helpers": true,
+                "corejs": 3,
+                "regenerator": true,
+                "version": "^7.18.9"
+            }
+        ]
+    ]
+}
