@@ -1,0 +1,18 @@
+/* Base */
+/* ------------------------------------------------------------------------------------------ */
+html {
+    --dark-grey: #555555;
+    --medium-grey: #aaaaaa;
+    --light-grey: #eeeeee;
+    --white: #ffffff;
+}
+
+html {
+    color: var( --dark-grey );
+    font-size: clamp( 16px, 8px + 1vw, 18px );
+}
+
+html, body {
+	inline-size: 100%;
+	block-size: 100%;
+}

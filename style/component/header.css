@@ -1,0 +1,114 @@
+/* Base */
+/* ------------------------------------------------------------------------------------------ */
+header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    inline-size: 100%;
+    border-block-end: 1px solid var( --light-grey );
+    background-color: var( --white );
+    white-space: nowrap;
+}
+
+/* Heading */
+/* ------------------------------------------------------------------------------------------ */
+header > h1 {
+    margin-inline: 1.5rem;
+    font-size: clamp( 1.5rem, 0.75rem + 3vw ,2rem );
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 无序列表 */
+/* ------------------------------------------------------------------------------------------ */
+header > ul {
+    display: flex;
+    align-items: center;
+    margin-inline-start: auto;
+}
+
+header > ul > li {
+    margin-inline: 1.5rem;
+    color: var( --medium-grey );
+    cursor: pointer;
+    transition: color 100ms ease;
+}
+
+header > ul > li.selected {
+    color: var( --dark-grey );
+}
+
+header > ul > li:hover {
+    color: var( --dark-grey );
+}
+
+/* Icon */
+/* ------------------------------------------------------------------------------------------ */
+header > ul > li:last-child {
+    display: flex;
+    align-items: center;
+    cursor: default;
+}
+
+header > ul > li > button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: 0;
+    background: none;
+}
+
+header > ul > li > button {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    margin-inline: 0.25rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+header > ul > li > button:first-child {
+    margin-inline-start: 0;
+}
+
+header > ul > li > button:last-child {
+    margin-inline-end: 0;
+}
+
+header > ul > li > button > svg {
+    inline-size: 100%;
+    block-size: 100%;
+    fill: var( --medium-grey );
+}
+
+header > ul > li > button:last-child {
+    position: relative;
+    inline-size: calc( 2rem + 6px );
+    block-size: clac( 1rem + 6px );
+    border: 1px solid var( --medium-grey );
+    border-radius: 999rem;
+    background-color: var( --light-grey );
+}
+
+header > ul > li > button > span {
+    display: inline-block;
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    inline-size: 1rem;
+    block-size: 1rem;
+    border-radius: 999rem;
+    background-color: var( --white );
+    transform: translateY( -50% );
+}
+
+header > ul > li > button > span > svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    inline-size: 70%;
+    block-size: 70%;
+    fill: var( --medium-grey );
+    transform: translate( -50%, -50% );
+}
