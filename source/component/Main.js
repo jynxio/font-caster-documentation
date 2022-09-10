@@ -1,14 +1,13 @@
 import "/style/prism.css";
 import "/style/component/main.css";
 import React from "react";
-import Overview from "./Overview";
-import GettingStarted from "./GettingStarted";
-import Reference from "./Reference";
+import Content from "./Content";
 import Prism from "prismjs";
 
 function Main ( {
     chapter,
-    chapters
+    chapters,
+    language,
 } ) {
 
     React.useEffect( _ => {
@@ -17,27 +16,15 @@ function Main ( {
 
     }, [ chapter ] );
 
-    return <main>{ create() }</main>;
-
-    function create () {
-
-        switch ( chapter ) {
-
-            case chapters[ 0 ]:
-                return <Overview/>;
-
-            case chapters[ 1 ]:
-                return <GettingStarted/>;
-
-            case chapters[ 2 ]:
-                return <Reference/>;
-
-            default:
-                throw new Error( `Unknow "chapter"` );
-
-        }
-
-    }
+    return (
+        <main>
+            <Content
+                chapter={ chapter }
+                chapters={ chapters }
+                language={ language }
+            />
+        </main>
+    );
 
 }
 
