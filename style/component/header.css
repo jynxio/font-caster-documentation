@@ -33,7 +33,7 @@ header > ul > li {
     margin-inline: 1.5rem;
     color: var( --medium-grey );
     cursor: pointer;
-    transition: color 100ms ease;
+    transition: color 200ms cubic-bezier( 0.4, 0.01, 0.2, 1 );
 }
 
 header > ul > li.selected {
@@ -46,6 +46,7 @@ header > ul > li:hover {
 
 /* Icon */
 /* ------------------------------------------------------------------------------------------ */
+/* Base */
 header > ul > li:last-child {
     display: flex;
     align-items: center;
@@ -80,30 +81,91 @@ header > ul > li > button > svg {
     inline-size: 100%;
     block-size: 100%;
     fill: var( --medium-grey );
+    transition: fill 200ms cubic-bezier( 0.4, 0.01, 0.2, 1 );
 }
 
-header > ul > li > button:last-child {
+header > ul > li > button:hover > svg,
+header > ul > li > button:focus > svg {
+    fill: var( --dark-grey );
+}
+
+/* Language */
+header > ul > li > button.language {
+    position: relative;
+}
+
+header > ul > li > button.language > aside {
+    position: absolute;
+    left: 50%;
+    top: 150%;
+    padding-inline: 0.25rem;
+    padding-block: 0.25rem;
+    border-radius: 0.25rem;
+    border: 1px solid var( --light-grey );
+    background-color: var( --white );
+    transform: translateX( -50% );
+    transition: opacity 200ms cubic-bezier( 0.4, 0.01, 0.2, 1 );
+}
+
+header > ul > li > button.language > aside.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+header > ul > li > button.language > aside.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+header > ul > li > button.language > aside > p {
+    padding-inline: 1rem;
+    border-radius: 0.25rem;
+    color: var( --medium-grey );
+    line-height: 2;
+    text-align: center;
+    transition: background-color 200ms cubic-bezier( 0.4, 0.01, 0.2, 1 );
+}
+
+header > ul > li > button.language > aside > p:hover {
+    background-color: var( --light-grey );
+}
+
+/* Theme */
+header > ul > li > button.theme {
     position: relative;
     inline-size: calc( 2rem + 6px );
     block-size: clac( 1rem + 6px );
     border: 1px solid var( --medium-grey );
     border-radius: 999rem;
     background-color: var( --light-grey );
+    transition: border-color 200ms cubic-bezier( 0.4, 0.01, 0.2, 1 );
 }
 
-header > ul > li > button > span {
+header > ul > li > button.theme:hover {
+    border-color: var( --dark-grey );
+}
+
+header > ul > li > button.theme > span {
     display: inline-block;
     position: absolute;
-    left: 2px;
     top: 50%;
+    left: 0;
     inline-size: 1rem;
     block-size: 1rem;
     border-radius: 999rem;
     background-color: var( --white );
-    transform: translateY( -50% );
+    transition: transform 200ms cubic-bezier( 0.4, 0.01, 0.2, 1 );
 }
 
-header > ul > li > button > span > svg {
+header > ul > li > button.theme > span.light {
+    transform: translate( 2px, -50% );
+}
+
+header > ul > li > button.theme > span.dark {
+    transform: translate( calc( 1rem + 2px ), -50% );
+}
+
+header > ul > li > button.theme > span > svg {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -111,4 +173,17 @@ header > ul > li > button > span > svg {
     block-size: 70%;
     fill: var( --medium-grey );
     transform: translate( -50%, -50% );
+    transition: fill 200ms cubic-bezier( 0.4, 0.01, 0.2, 1 );
+}
+
+header > ul > li > button.theme > span.light > svg:last-child {
+    visibility: hidden;
+}
+
+header > ul > li > button.theme > span.dark > svg:first-child {
+    visibility: hidden;
+}
+
+header > ul > li > button.theme:hover > span > svg {
+    fill: var( --dark-grey );
 }
