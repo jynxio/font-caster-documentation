@@ -21,6 +21,7 @@ function App () {
                 chapter={ chapter }
                 chapters={ chapters }
                 language={ language }
+                languages={ languages }
                 setChapter={ setChapter }
                 setLanguage={ setLanguage }
             />
@@ -28,6 +29,7 @@ function App () {
                 chapter={ chapter }
                 chapters={ chapters }
                 language={ language }
+                languages={ languages }
             />
         </>
     );

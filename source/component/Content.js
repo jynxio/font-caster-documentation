@@ -11,33 +11,34 @@ function Content ( {
     chapter,
     chapters,
     language,
+    languages,
 } ) {
 
     let markdown;
 
     switch ( chapter ) {
 
-        case ( chapters[ language ][ 0 ] ):
+        case ( chapters[ languages[ 0 ] ][ 0 ] ):
             markdown = overview_english_markdown;
             break;
 
-        case ( chapters[ language ][ 0 ] ):
+        case ( chapters[ languages[ 1 ] ][ 0 ] ):
             markdown = overview_chinese_markdown;
             break;
 
-        case ( chapters[ language ][ 1 ] ):
+        case ( chapters[ languages[ 0 ] ][ 1 ] ):
             markdown = gettingstarted_english_markdown;
             break;
 
-        case ( chapters[ language ][ 1 ] ):
+        case ( chapters[ languages[ 1 ] ][ 1 ] ):
             markdown = gettingstarted_chinese_markdown;
             break;
 
-        case ( chapters[ language ][ 2 ] ):
+        case ( chapters[ languages[ 0 ] ][ 2 ] ):
             markdown = reference_english_markdown;
             break;
 
-        case ( chapters[ language ][ 2 ] ):
+        case ( chapters[ languages[ 1 ] ][ 2 ] ):
             markdown = reference_chinese_markdown;
             break;
 

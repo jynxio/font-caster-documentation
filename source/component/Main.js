@@ -8,6 +8,7 @@ function Main ( {
     chapter,
     chapters,
     language,
+    languages,
 } ) {
 
     React.useEffect( _ => {
@@ -22,6 +23,7 @@ function Main ( {
                 chapter={ chapter }
                 chapters={ chapters }
                 language={ language }
+                languages={ languages }
             />
         </main>
     );
