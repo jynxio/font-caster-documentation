@@ -1,0 +1,11 @@
+html {
+    --white: #ffffff;
+    --light-grey: #eeeeee;
+    --medium-grey: #aaaaaa;
+    --dark-grey: #444444;
+}
+
+html {
+    color: var( --dark-grey );
+    font-size: clamp( 16px, 8px + 1vw, 18px );
+}

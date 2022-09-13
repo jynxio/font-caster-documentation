@@ -1,38 +1,62 @@
+/* css */
 import "/style/reset.css";
-import "/style/base.css";
-import React from "react";
-import Header from "./component/Header";
-import Main from "./component/Main";
+import "/style/index.css";
 
-const languages = [ "english", "chinese" ];
-const chapters = {
-    [ languages[ 0 ] ]: [ "Overview", "Getting Started", "Reference" ],
-    [ languages[ 1 ] ]: [ "概述", "快速开始", "参考文档" ],
-};
+/* constant  */
+import CHAPTERS from "./constant/chapter";
+import LANGUAGES from "./constant/language";
+
+/* js */
+import React from "react";
+import ChapterContext from "./context/ChapterContext";
+import LanguageContext from "./context/LanguageContext";
+import Header from "./component/header/index";
 
 function App () {
 
-    const [ language, setLanguage ] = React.useState( languages[ 0 ] );
-    const [ chapter, setChapter ] = React.useState( chapters[ language ][ 0 ] );
+    const initial_language = LANGUAGES[ 0 ];                   // "english"
+    const initial_chapter = CHAPTERS[ 0 ][ initial_language ]; // "Overview"
+
+    const ChapterContextProvider = useChapter( initial_chapter );
+    const LanguageContextProvider = useLanguage( initial_language );
 
     return (
-        <>
-            <Header
-                chapter={ chapter }
-                chapters={ chapters }
-                language={ language }
-                languages={ languages }
-                setChapter={ setChapter }
-                setLanguage={ setLanguage }
-            />
-            <Main
-                chapter={ chapter }
-                chapters={ chapters }
-                language={ language }
-                languages={ languages }
-            />
-        </>
+        <ChapterContextProvider>
+            <LanguageContextProvider>
+                <Header/>
+            </LanguageContextProvider>
+        </ChapterContextProvider>
     );
+
+}
+
+function useChapter ( initial_chapter ) {
+
+    return function ChapterContextProvider ( property ) {
+
+        return (
+            <ChapterContext.Provider
+                value={ React.useState( initial_chapter ) }
+                { ... property }
+            />
+        );
+
+    }
+
+}
+
+function useLanguage ( initial_language ) {
+
+    return function LanguageContextProvider ( property ) {
+
+        return (
+            <LanguageContext.Provider
+                value={ React.useState( initial_language ) }
+                { ... property }
+            />
+        );
+
+    }
 
 }
 

@@ -1,11 +1,18 @@
 const path = require("path");
-
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require( "mini-css-extract-plugin" );
 
 module.exports = {
     entry: "./source/index.js",
     plugins: [
-        new HtmlWebpackPlugin({ title: "" }),
+        new MiniCssExtractPlugin( {
+            filename: "css/[name].css"
+        } ),
+        new HtmlWebpackPlugin( {
+            title: "practice-react",
+            filename: "index.html",
+            template: "./template/index.html",
+        } ),
     ],
     module: {
         rules: [
@@ -25,10 +32,6 @@ module.exports = {
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: "asset/resource",
-            },
-            {
-                test: /\.md$/i,
-                type: "asset/source",
             },
         ],
     },
