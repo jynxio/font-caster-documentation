@@ -1,0 +1,27 @@
+header > section.chapter {
+    display: flex;
+    align-items: center;
+    margin-inline-end: auto;
+}
+
+header > section.chapter > span {
+    margin-inline: 1rem;
+    cursor: pointer;
+}
+
+header > section.chapter > span:first-child {
+    margin-inline-start: 0;
+}
+
+header > section.chapter > span:last-child {
+    margin-inline-end: 0;
+}
+
+header > section.chapter > span.unselected {
+    color: var( --medium-grey )
+}
+
+header > section.chapter > span.selected,
+header > section.chapter > span.unselected:hover {
+    color: var( --dark-grey );
+}

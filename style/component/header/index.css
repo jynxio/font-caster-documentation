@@ -1,0 +1,12 @@
+header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    inline-size: 100%;
+    block-size: 3em;
+    padding-inline: 2rem;
+    border-block-end: 1px solid var( --light-grey );
+    background-color: var( --white );
+}

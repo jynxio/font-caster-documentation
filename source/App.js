@@ -1,38 +1,60 @@
+/* css */
 import "/style/reset.css";
-import "/style/base.css";
-import React from "react";
-import Header from "./component/Header";
-import Main from "./component/Main";
+import "/style/index.css";
 
-const languages = [ "english", "chinese" ];
-const chapters = {
-    [ languages[ 0 ] ]: [ "Overview", "Getting Started", "Reference" ],
-    [ languages[ 1 ] ]: [ "概述", "快速开始", "参考文档" ],
-};
+/* js */
+import React from "react";
+import ChapterIndexContext from "./context/ChapterIndexContext";
+import LanguageIndexContext from "./context/LanguageIndexContext";
+import Header from "./component/header/index";
+import Main from "./component/main/index";
 
 function App () {
 
-    const [ language, setLanguage ] = React.useState( languages[ 0 ] );
-    const [ chapter, setChapter ] = React.useState( chapters[ language ][ 0 ] );
+    const initial_language_index = 0;
+    const initial_chapter_index = 0;
+
+    const ChapterIndexContextProvider = useChapter( initial_chapter_index );
+    const LanguageIndexContextProvider = useLanguage( initial_language_index );
 
     return (
-        <>
-            <Header
-                chapter={ chapter }
-                chapters={ chapters }
-                language={ language }
-                languages={ languages }
-                setChapter={ setChapter }
-                setLanguage={ setLanguage }
-            />
-            <Main
-                chapter={ chapter }
-                chapters={ chapters }
-                language={ language }
-                languages={ languages }
-            />
-        </>
+        <ChapterIndexContextProvider>
+            <LanguageIndexContextProvider>
+                <Header/>
+                <Main/>
+            </LanguageIndexContextProvider>
+        </ChapterIndexContextProvider>
     );
+
+}
+
+function useChapter ( initial_chapter ) {
+
+    return function ChapterIndexContextProvider ( property ) {
+
+        return (
+            <ChapterIndexContext.Provider
+                value={ React.useState( initial_chapter ) }
+                { ... property }
+            />
+        );
+
+    }
+
+}
+
+function useLanguage ( initial_language ) {
+
+    return function LanguageIndexContextProvider ( property ) {
+
+        return (
+            <LanguageIndexContext.Provider
+                value={ React.useState( initial_language ) }
+                { ... property }
+            />
+        );
+
+    }
 
 }
 

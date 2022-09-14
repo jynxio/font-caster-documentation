@@ -1,4 +1,4 @@
-## Catalogue
+## 目录
 
 - `subset`：子集化字体文件。
 - `parseHtml`：提取 html 文本的指定的标签的内容。
