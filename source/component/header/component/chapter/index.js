@@ -16,7 +16,7 @@ function Chapter () {
     const chapters = CHAPTERS.map( item => item[ language ] );
 
     return (
-        <section className="chapter">
+        <section className={ "chapter" }>
             { chapters.map( item => (
                 <span
                     key={ item }

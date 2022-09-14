@@ -5,13 +5,17 @@ import "/style/component/header/index.css"
 import React from "react";
 import Chapter from "./component/chapter";
 import Icon from "./component/icon";
+import Language from "./component/language";
 
 function Header () {
+
+    const [ language_visible, setLanguageVisible ] = React.useState( false );
 
     return (
         <header>
             <Chapter/>
-            <Icon/>
+            <Icon setLanguageVisible={ setLanguageVisible }/>
+            <Language visible={ language_visible }/>
         </header>
     );
 
