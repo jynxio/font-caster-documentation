@@ -10,3 +10,13 @@ html {
     color: var( --dark-grey );
     font-size: clamp( 16px, 8px + 1vw, 18px );
 }
+
+/* Code */
+@font-face {
+    font-family: "Fira Code";
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: local( "Fira Code" ),
+        url( "/static/font/firacode-regular.ttf" ) format( "ttf" );
+}

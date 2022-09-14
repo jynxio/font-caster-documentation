@@ -16,7 +16,7 @@ main > article {
 /* heading */
 /* ------------------------------------------------------------------------------------------ */
 main > article > h2 {
-    margin-block-start: calc( var( --h2-font-size ) * 2 );
+    margin-block-start: var( --h2-font-size );
     font-size: var( --h2-font-size );
     font-weight: bold;
 }
@@ -54,7 +54,7 @@ main > article ul > li:not(.check-li)::before {
     block-size: 0.5rem;
     margin-inline-start: -0.5rem;;
     border-radius: 999rem;
-    background-color: var( --light-dark );
+    background-color: var( --medium-grey );
     transform: translate( -100%, -50% );
 }
 
@@ -78,22 +78,24 @@ main > article > blockquote * {
 
 /* Code */
 /* ------------------------------------------------------------------------------------------ */
-main > article > pre,
-main > article > code {
+main > article pre,
+main > article code {
 	border-radius: 0.25rem;
     background-color: var( --light-grey );
+    font-family: "Fira Code";
 }
 
-main > article > code {
-	padding-inline: 0.5em;
-}
-
-main > article > pre {
-	padding: 1em;
+main > article pre {
+	padding: 1rem;
     margin-block: 0.5rem;
 }
 
-main > article > pre > code {
+main > article code {
+	padding-inline: 0.5rem;
+    padding-block: 0.1rem;
+}
+
+main > article pre > code {
     padding: 0;
     border-radius: 0;
     background-color: transparent;
