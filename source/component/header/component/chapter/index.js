@@ -1,25 +1,30 @@
 /* css */
 import "/style/component/header/component/chapter/index.css";
 
-/* constant */
-import CHAPTERS from "../../../../constant/chapter";
-
 /* js */
 import React from "react";
-import ChapterContext from "../../../../context/ChapterContext";
-import LanguageContext from "../../../../context/LanguageContext";
+import ChapterIndexContext from "../../../../context/ChapterIndexContext";
+import LanguageIndexContext from "../../../../context/LanguageIndexContext";
+
+/* data */
+import LANGUAGES from "../../../../constant/languages";
+import CHAPTERS from "../../../../constant/chapters";
 
 function Chapter () {
 
-    const [ language ] = React.useContext( LanguageContext );
-    const [ chapter ] = React.useContext( ChapterContext );
+    const [ language_index ] = React.useContext( LanguageIndexContext );
+    const [ chapter_index, setChapterIndex ] = React.useContext( ChapterIndexContext );
+
+    const language = LANGUAGES[ language_index ];
+    const chapter = CHAPTERS[ chapter_index ][ language ];
     const chapters = CHAPTERS.map( item => item[ language ] );
 
     return (
-        <section className={ "chapter" }>
-            { chapters.map( item => (
+        <section className={ "chapter" } onClick={ handleClick }>
+            { chapters.map( ( item, index ) => (
                 <span
                     key={ item }
+                    data-index={ index }
                     className={ item === chapter ? "selected" : "unselected" }
                 >
                     { item }
@@ -27,6 +32,16 @@ function Chapter () {
             ) ) }
         </section>
     );
+
+    function handleClick ( event ) {
+
+        if ( event.target.nodeName.toLowerCase() !== "span" ) return;
+
+        const index = + event.target.getAttribute( "data-index" );
+
+        setChapterIndex( index );
+
+    }
 
 }
 

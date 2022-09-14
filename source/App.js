@@ -2,40 +2,38 @@
 import "/style/reset.css";
 import "/style/index.css";
 
-/* constant  */
-import CHAPTERS from "./constant/chapter";
-import LANGUAGES from "./constant/language";
-
 /* js */
 import React from "react";
-import ChapterContext from "./context/ChapterContext";
-import LanguageContext from "./context/LanguageContext";
+import ChapterIndexContext from "./context/ChapterIndexContext";
+import LanguageIndexContext from "./context/LanguageIndexContext";
 import Header from "./component/header/index";
+import Main from "./component/main/index";
 
 function App () {
 
-    const initial_language = LANGUAGES[ 0 ];                   // "english"
-    const initial_chapter = CHAPTERS[ 0 ][ initial_language ]; // "Overview"
+    const initial_language_index = 0;
+    const initial_chapter_index = 0;
 
-    const ChapterContextProvider = useChapter( initial_chapter );
-    const LanguageContextProvider = useLanguage( initial_language );
+    const ChapterIndexContextProvider = useChapter( initial_chapter_index );
+    const LanguageIndexContextProvider = useLanguage( initial_language_index );
 
     return (
-        <ChapterContextProvider>
-            <LanguageContextProvider>
+        <ChapterIndexContextProvider>
+            <LanguageIndexContextProvider>
                 <Header/>
-            </LanguageContextProvider>
-        </ChapterContextProvider>
+                <Main/>
+            </LanguageIndexContextProvider>
+        </ChapterIndexContextProvider>
     );
 
 }
 
 function useChapter ( initial_chapter ) {
 
-    return function ChapterContextProvider ( property ) {
+    return function ChapterIndexContextProvider ( property ) {
 
         return (
-            <ChapterContext.Provider
+            <ChapterIndexContext.Provider
                 value={ React.useState( initial_chapter ) }
                 { ... property }
             />
@@ -47,10 +45,10 @@ function useChapter ( initial_chapter ) {
 
 function useLanguage ( initial_language ) {
 
-    return function LanguageContextProvider ( property ) {
+    return function LanguageIndexContextProvider ( property ) {
 
         return (
-            <LanguageContext.Provider
+            <LanguageIndexContext.Provider
                 value={ React.useState( initial_language ) }
                 { ... property }
             />

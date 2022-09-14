@@ -15,7 +15,7 @@ function Header () {
         <header>
             <Chapter/>
             <Icon setLanguageVisible={ setLanguageVisible }/>
-            <Language visible={ language_visible }/>
+            <Language visible={ language_visible } setVisible={ setLanguageVisible }/>
         </header>
     );
 

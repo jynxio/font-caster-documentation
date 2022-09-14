@@ -3,14 +3,16 @@ import "/style/component/header/component/language/index.css";
 
 /* js */
 import React from "react";
-import LANGUAGES from "../../../../constant/language";
-import LanguageContext from "../../../../context/LanguageContext";
+import LanguageIndexContext from "../../../../context/LanguageIndexContext";
 
-function Language ( { visible } ) {
+/* data */
+import LANGUAGES from "../../../../constant/languages";
+
+function Language ( { visible, setVisible } ) {
 
     if ( ! visible ) return;
 
-    const [ language, setLanguage ] = React.useContext( LanguageContext );
+    const [ language_index, setLanguageIndex ] = React.useContext( LanguageIndexContext );
 
     return (
         <section className={ "language" } onClick={ handleClick }>
@@ -24,20 +26,27 @@ function Language ( { visible } ) {
 
         if ( event.target.nodeName.toLowerCase() !== "div" ) return;
 
-        switch ( event.target.textContent ) {
+        if ( event.target.textContent === "English" ) {
 
-            case "English":
-                language === LANGUAGES[ 0 ] || setLanguage( LANGUAGES[ 0 ] );
-                break;
+            language_index === 0 || setLanguageIndex( 0 );
 
-            case "简体中文":
-                language === LANGUAGES[ 1 ] || setLanguage( LANGUAGES[ 1 ] );
-                break;
+            setVisible( false );
 
-            default:
-                throw new Error( "Unknow language type" );
+            return;
 
         }
+
+        if ( event.target.textContent === "简体中文" ) {
+
+            language_index === 1 || setLanguageIndex( 1 );
+
+            setVisible( false );
+
+            return;
+
+        }
+
+        throw new Error( "Unknow language type" );
 
     }
 

@@ -4,8 +4,8 @@ header > section.icon {
     margin-inline-start: auto;
 }
 
+/* reset the style of the button */
 header > section.icon > button {
-    /* reset the style of the button */
     margin: 0;
     padding: 0;
     border: none;
