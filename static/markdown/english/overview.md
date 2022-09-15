@@ -2,7 +2,8 @@
 
 A minimalist font-subsetting library that reduces the size of font files by removing redundant characters.
 
-The library runs in the Node.js environment.
+> The library runs in the Node.js environment.
+>
 
 ## Download
 

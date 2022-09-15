@@ -1,0 +1,28 @@
+/* english word */
+@font-face {
+    font-family: "IBM Plex Mono - 300";
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: local( "IBM Plex Mono - 300" ),
+        url( "/static/font/ibmplexmono-light-300.ttf" ) format( "ttf" );
+}
+
+@font-face {
+    font-family: "IBM Plex Mono - 700";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local( "IBM Plex Mono - 700" ),
+        url( "/static/font/ibmplexmono-bold-700.ttf" ) format( "ttf" );
+}
+
+/* code word */
+@font-face {
+    font-family: "Fira Code - 400";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local( "Fira Code - 400" ),
+        url( "/static/font/firacode-regular-400.ttf" ) format( "ttf" );
+}

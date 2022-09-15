@@ -1,7 +1,7 @@
 /* global variable */
 /* ------------------------------------------------------------------------------------------ */
 main > article {
-    --h2-font-size: clamp( 2rem, 0.75rem + 3vw, 2.5rem );
+    --h2-font-size: clamp( 1.5rem, 0.75rem + 3vw, 1.75rem );
     --h3-font-size: clamp( 1rem, 0.5rem + 3vw ,1.25rem );
 }
 
@@ -9,26 +9,31 @@ main > article {
 /* ------------------------------------------------------------------------------------------ */
 main > article {
     max-inline-size: 66ch;
-    padding-block: calc( var( --h2-font-size ) * 3 );;
+    padding-block: var( --h2-font-size );
     margin-inline: auto;
 }
 
 /* heading */
 /* ------------------------------------------------------------------------------------------ */
+main > article > h2,
+main > article > h3 {
+    font-family: "IBM Plex Mono - 700";
+    font-style: normal;
+    font-weight: 700;
+}
+
 main > article > h2 {
     margin-block-start: var( --h2-font-size );
     font-size: var( --h2-font-size );
-    font-weight: bold;
-}
-
-main > article > h2:first-child {
-    margin-block-start: 0;
 }
 
 main > article > h3 {
     margin-block-start: var( --h3-font-size );
     font-size: var( --h3-font-size );
-    font-weight: bold;
+}
+
+main > article > h2:first-child {
+    margin-block-start: 0;
 }
 
 /* list */
@@ -82,7 +87,6 @@ main > article pre,
 main > article code {
 	border-radius: 0.25rem;
     background-color: var( --light-grey );
-    font-family: "Fira Code";
 }
 
 main > article pre {
@@ -91,12 +95,18 @@ main > article pre {
 }
 
 main > article code {
-	padding-inline: 0.5rem;
-    padding-block: 0.1rem;
+	padding-inline: 0.5em;
 }
 
 main > article pre > code {
     padding: 0;
     border-radius: 0;
     background-color: transparent;
+}
+
+main > article code,
+main > article code * {
+    font-family: "Fira Code - 400";
+    font-weight: 400;
+    font-style: normal;
 }

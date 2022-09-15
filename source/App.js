@@ -1,5 +1,6 @@
 /* css */
 import "/style/reset.css";
+import "/style/font.css";
 import "/style/index.css";
 
 /* js */
