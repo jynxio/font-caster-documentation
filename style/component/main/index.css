@@ -85,7 +85,7 @@ main > article > blockquote * {
 /* ------------------------------------------------------------------------------------------ */
 main > article pre,
 main > article code {
-	border-radius: 0.25rem;
+	border-radius: var( --border-radius );
     background-color: var( --light-grey );
 }
 
