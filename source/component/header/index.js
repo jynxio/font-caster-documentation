@@ -1,6 +1,3 @@
-/* css */
-import "/style/component/header/index.css"
-
 /* js */
 import React from "react";
 import Chapter from "./component/chapter";

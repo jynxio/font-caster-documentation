@@ -1,7 +1,3 @@
-/* css */
-import "/style/component/main/prism.css";
-import "/style/component/main/index.css";
-
 /* js */
 import React from "react";
 import ReactMarkdown from "react-markdown";

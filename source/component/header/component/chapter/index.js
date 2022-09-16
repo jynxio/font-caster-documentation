@@ -1,6 +1,3 @@
-/* css */
-import "/style/component/header/component/chapter/index.css";
-
 /* js */
 import React from "react";
 import ChapterIndexContext from "../../../../context/ChapterIndexContext";

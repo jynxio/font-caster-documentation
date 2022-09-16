@@ -1,6 +1,3 @@
-/* css */
-import "/style/component/header/component/language/index.css";
-
 /* js */
 import React from "react";
 import LanguageIndexContext from "../../../../context/LanguageIndexContext";

@@ -1,6 +1,3 @@
-/* css */
-import "/style/component/header/component/icon/index.css";
-
 /* js */
 import React from "react";
 

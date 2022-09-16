@@ -9,43 +9,37 @@ fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
+menu,main, nav, output, ruby, section, summary,
 time, mark, audio, video {
     box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	border: none;
+    padding: 0;
+    margin: 0;
+    border: none;
     outline: none;
-	font: inherit;
-	font-size: 100%;
-    line-height: 1.65;
-	vertical-align: baseline;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
 }
 
-html, body {
-	width: 100%;
-	height: 100%;
-}
-
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article, section, nav {
+    display: block;
 }
 
 ol, ul {
-	list-style: none;
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 blockquote, q {
-	quotes: none;
+    quotes: none;
 }
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: "";
-}
-
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    content: "";
+    content: none;
 }

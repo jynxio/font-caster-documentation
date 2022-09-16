@@ -1,28 +1,28 @@
 /* english word */
 @font-face {
-    font-family: "IBM Plex Mono - 300";
+    font-family: "IBM Plex Serif - 300";
     font-style: normal;
     font-weight: 300;
     font-display: swap;
-    src: local( "IBM Plex Mono - 300" ),
-        url( "/static/font/ibmplexmono-light-300.ttf" ) format( "ttf" );
+    src: local( "IBM Plex Serif - 300" ),
+        url( "/static/font/ibmplexserif-light-300.ttf" ) format( "truetype" );
 }
 
 @font-face {
-    font-family: "IBM Plex Mono - 700";
+    font-family: "IBM Plex Serif - 600";
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     font-display: swap;
-    src: local( "IBM Plex Mono - 700" ),
-        url( "/static/font/ibmplexmono-bold-700.ttf" ) format( "ttf" );
+    src: local( "IBM Plex Serif - 600" ),
+        url( "/static/font/ibmplexserif-semibold-600.ttf" ) format( "truetype" );
 }
 
 /* code word */
 @font-face {
-    font-family: "Fira Code - 400";
+    font-family: "Fira Code - 300";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     font-display: swap;
-    src: local( "Fira Code - 400" ),
-        url( "/static/font/firacode-regular-400.ttf" ) format( "ttf" );
+    src: local( "Fira Code - 300" ),
+        url( "/static/font/firacode-light-300.ttf" ) format( "truetype" );
 }

@@ -1,15 +1,357 @@
-html {
+/* 全局变量 */
+/* ------------------------------------------------------------------------------------------ */
+:root {
     --white: #ffffff;
     --light-grey: #eeeeee;
     --medium-grey: #aaaaaa;
     --dark-grey: #444444;
+}
+
+:root {
     --border-radius: 0.2rem;
+    --line-height: 1.65;
+    --h2-font-size: clamp( 1.5rem, 0.75rem + 3vw, 1.75rem );
+    --h3-font-size: clamp( 1rem, 0.5rem + 3vw ,1.25rem );
+}
+
+/* 重置：仅设定使用到的元素。 */
+/* ------------------------------------------------------------------------------------------------- */
+html, body,
+header, section, article, aside, div,
+h1, h2, h3, h4, h5, h6, p,
+table, thead, tbody, th, tr, td,
+ol, ul, li,
+a, span, strong, button
+pre, code,
+blockquote {
+    color: var( --dark-grey );
+    font-family: "IBM Plex Serif - 300";
+    font-weight: 300;
+    font-size: clamp( 16px, 8px + 2vw, 18px );
+    line-height: var( --line-height );
+    overflow-wrap: break-word;
 }
 
 html {
+    scroll-behavior: smooth;
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: 0;
+    background: none;
+}
+
+img {
+    box-sizing: border-box;
+    display: block;
+    max-inline-size: 100%;
+    block-size: auto;
+    padding: 0;
+    margin-block: 1rem;
+    margin-inline: auto;
+    border: none;
+    outline: none;
+    border-radius: var( --border-radius );
+    line-height: 1;
+}
+
+svg {
+    box-sizing: border-box;
+    display: block;
+    padding: 0;
+    margin-block: 0;
+    margin-inline: auto;
+    border: none;
+    outline: none;
+    line-height: 1;
+}
+
+/* 制造段落感 */
+h1, h2, h3, h4, h5, h6, p,
+table,
+ul, ol, li,
+pre,
+blockquote {
+    margin-block: 1.75rem;
+}
+
+/* header */
+/* ------------------------------------------------------------------------------------------------- */
+header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    inline-size: 100%;
+    block-size: 3em;
+    padding-inline: 2rem;
+    border-block-end: 1px solid var( --light-grey );
+    background-color: var( --white );
+}
+
+/* header > chapter */
+/* ------------------------------------------------------------------------------------------------- */
+header > section.chapter {
+    display: flex;
+    align-items: center;
+    margin-inline-end: auto;
+}
+
+header > section.chapter > span {
+    margin-inline: 1rem;
+    cursor: pointer;
+}
+
+header > section.chapter > span:first-child {
+    margin-inline-start: 0;
+}
+
+header > section.chapter > span:last-child {
+    margin-inline-end: 0;
+}
+
+header > section.chapter > span.unselected {
+    color: var( --medium-grey )
+}
+
+header > section.chapter > span.selected,
+header > section.chapter > span.unselected:hover {
     color: var( --dark-grey );
-    font-family: "IBM Plex Mono - 300";
-    font-size: clamp( 16px, 8px + 2vw, 18px );
+}
+
+/* header > icon */
+/* ------------------------------------------------------------------------------------------------- */
+header > section.icon {
+    display: flex;
+    align-items: center;
+    margin-inline-start: auto;
+}
+
+header > section.icon > button {
+    margin-inline: 0.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+header > section.icon > button:first-child {
+    margin-inline-start: 0;
+}
+
+header > section.icon > button:last-child {
+    margin-inline-end: 0;
+}
+
+/* github & language */
+header > section.icon > button:nth-child( -n+2 ) {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+}
+
+header > section.icon > button:nth-child( -n+2 ) > svg {
+    inline-size: 100%;
+    block-size: 100%;
+    fill: var( --medium-grey );
+}
+
+header > section.icon > button:nth-child( -n+2 ):hover > svg {
+    fill: var( --dark-grey );
+}
+
+/* theme */
+header > section.icon > button:nth-child( 3 ) {
+    position: relative;
+    inline-size: calc( 2rem + 6px );
+    block-size: calc( 1rem + 6px );
+    border: 1px solid var( --medium-grey );
+    border-radius: 999rem;
+    background-color: var( --light-grey );
+}
+
+header > section.icon > button:nth-child( 3 ):hover {
+    border-color: var( --dark-grey );
+}
+
+header > section.icon > button:nth-child( 3 ) > span {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    inline-size: 1rem;
+    block-size: 1rem;
+    border-radius: 999rem;
+    background-color: var( --white );
+}
+
+header > section.icon > button:nth-child( 3 ) > span.light {
+    transform: translate( 2px, -50% );
+}
+
+header > section.icon > button:nth-child( 3 ) > span.dark {
+    transform: translate( calc( 1rem + 2px ), -50% );
+}
+
+header > section.icon > button:nth-child( 3 ) > span > svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    inline-size: 70%;
+    block-size: 70%;
+    fill: var( --medium-grey );
+    transform: translate( -50%, -50% );
+}
+
+header > section.icon > button:nth-child( 3 ):hover > span > svg {
+    fill: var( --dark-grey );
+}
+
+header > section.icon > button:nth-child( 3 ) > span.light > svg.sun,
+header > section.icon > button:nth-child( 3 ) > span.dark > svg.moon {
+    visibility: visible;
+}
+
+header > section.icon > button:nth-child( 3 ) > span.dark > svg.sun,
+header > section.icon > button:nth-child( 3 ) > span.light > svg.moon {
+    visibility: hidden;
+}
+
+/* header > language */
+/* ------------------------------------------------------------------------------------------------- */
+header > section.language {
+    position: fixed;
+    top: 3.5rem;
+    right: 0.5rem;
+    border: 1px solid var( --light-grey );
+    border-radius: var( --border-radius );
+}
+
+header > section.language > div {
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    color: var( --medium-grey );
+    font-size: 80%;
+    text-align: center;
+    cursor: pointer;
+}
+
+header > section.language > div:hover {
+    color: var( --dark-grey );
+}
+
+header > section.language > hr {
+    inline-size: 100%;
+    block-size: 1px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: var( --light-grey );
+}
+
+/* main */
+/* ------------------------------------------------------------------------------------------------- */
+
+
+/* main > article */
+/* ------------------------------------------------------------------------------------------------- */
+main > article {
+    max-inline-size: 66ch;
+    padding-block: var( --h2-font-size );
+    margin-inline: auto;
+}
+
+/* main > heading */
+/* ------------------------------------------------------------------------------------------------- */
+main > article > h2,
+main > article > h3 {
+    font-family: "IBM Plex Serif - 600";
+    font-weight: 600;
+}
+
+main > article > h2 {
+    margin-block-start: var( --h2-font-size );
+    font-size: var( --h2-font-size );
+}
+
+main > article > h3 {
+    margin-block-start: var( --h3-font-size );
+    font-size: var( --h3-font-size );
+}
+
+main > article > h2:first-child {
+    margin-block-start: 0;
+}
+
+/* main > list */
+/* ------------------------------------------------------------------------------------------------- */
+main > article li {
+    position: relative;
+    margin: 0.5rem;
+    margin-inline-start: 2rem;
+}
+
+main > article li > ul,
+main > article li > ol {
+    margin-block: 0.5rem;
+}
+
+main > article ul > li:not(.check-li)::before {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    inline-size: 0.5rem;
+    block-size: 0.5rem;
+    margin-inline-start: -0.5rem;;
+    border-radius: 999rem;
+    background-color: var( --medium-grey );
+    transform: translate( -100%, -50% );
+}
+
+/* main > blockquote */
+/* ------------------------------------------------------------------------------------------------- */
+main > article > blockquote {
+    padding-inline: 0.5rem;
+    border-inline-start: 0.25rem solid var( --light-grey );
+    color: var( --medium-grey );
+    font-size: 0.9rem;
+}
+
+main > article > blockquote * {
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/* main > code */
+/* ------------------------------------------------------------------------------------------------- */
+main > article code,
+main > article pre {
+    border-radius: var( --border-radius );
+    background-color: var( --light-grey );
+    font-family: "Fira Code - 300";
     font-weight: 300;
-    font-style: normal;
+}
+
+main > article code {
+    padding-inline: 0.5em;
+}
+
+main > article pre {
+    overflow: auto;
+    padding-block: 1.25em;
+    padding-inline: 1em;
+    margin-block: 0.5em;
+}
+
+main > article pre > code {
+    padding: 0;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+main > article pre * {
+    font: inherit;
 }
