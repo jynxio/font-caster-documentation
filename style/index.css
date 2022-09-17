@@ -80,26 +80,111 @@ blockquote {
 
 /* header */
 /* ------------------------------------------------------------------------------------------------- */
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+@media ( min-width: 60ch ) {
+    header > nav.mobile {
+        display: none !important;
+    }
+    header > nav.desktop {
+        display: flex !important;
+    }
+}
+
+@media ( max-width: 60ch ) {
+    header > nav.mobile {
+        display: block !important;
+    }
+    header > nav.desktop {
+        display: none !important;
+    }
+}
+
+/* header > nav.mobile */
+/* ------------------------------------------------------------------------------------------------- */
+header > nav.mobile {
+    overflow-y: hidden;
+    inline-size: 100%;
+    padding-inline: 2rem;
+    background-color: var( --white );
+}
+
+header > nav.mobile.shrink {
+    block-size: 3rem;
+    border-block-end: 1px solid var( --light-grey );
+}
+
+header > nav.mobile.spread {
+    block-size: 100vh;
+    border: none;
+}
+
+/* switch */
+header > nav.mobile > section.switch {
+    display: flex;
+    align-items: center;
+    inline-size: 100%;
+    block-size: calc( 3rem - 1px );
+}
+
+header > nav.mobile > section.switch > button {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    margin-inline-start: auto;
+    cursor: pointer;
+}
+
+header > nav.mobile > section.switch > button > div {
+    block-size: 2px;
+    margin-inline-start: auto;
+    background-color: var( --medium-grey );
+}
+
+header > nav.mobile > section.switch > button:hover > div {
+    background-color: var( --dark-grey );
+}
+
+header > nav.mobile > section.switch > button > div:nth-child( 1 ) {
+    inline-size: 80%;
+}
+
+header > nav.mobile > section.switch > button > div:nth-child( 2 ) {
+    inline-size: 40%;
+    margin-block: 4px;
+}
+
+header > nav.mobile > section.switch > button > div:nth-child( 3 ) {
+    inline-size: 60%;
+}
+
+header > nav.mobile > section.switch > button:hover > div:nth-child( 1 ) {
+    inline-size: 60%;
+}
+
+header > nav.mobile > section.switch > button:hover > div:nth-child( 2 ) {
+    inline-size: 80%;
+}
+
+header > nav.mobile > section.switch > button:hover > div:nth-child( 3 ) {
+    inline-size: 40%;
+}
+
+/* chapter */
 
 /* header > nav.desktop */
 /* ------------------------------------------------------------------------------------------------- */
 header > nav.desktop {
     display: flex;
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 999;
     inline-size: 100%;
-    block-size: 3em;
+    block-size: 3rem;
     padding-inline: 2rem;
     border-block-end: 1px solid var( --light-grey );
     background-color: var( --white );
-}
-
-@media ( max-width: 60ch ) {
-    header > nav.desktop {
-        display: none;
-    }
 }
 
 /* chapter */

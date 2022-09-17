@@ -9,7 +9,7 @@ function NavDesktop () {
     const [ language_visible, setLanguageVisible ] = React.useState( false );
 
     return (
-        <nav className="desktop">
+        <nav className={ "desktop" }>
             <Chapter/>
             <Icon setLanguageVisible={ setLanguageVisible }/>
             <Language visible={ language_visible } setVisible={ setLanguageVisible }/>
