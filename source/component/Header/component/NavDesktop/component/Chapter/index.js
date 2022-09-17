@@ -1,11 +1,11 @@
 /* js */
 import React from "react";
-import ChapterIndexContext from "../../../../context/ChapterIndexContext";
-import LanguageIndexContext from "../../../../context/LanguageIndexContext";
+import ChapterIndexContext from "/source/context/ChapterIndexContext";
+import LanguageIndexContext from "/source/context/LanguageIndexContext";
 
 /* data */
-import LANGUAGES from "../../../../constant/languages";
-import CHAPTERS from "../../../../constant/chapters";
+import CHAPTERS from "/source/constant/chapters";
+import LANGUAGES from "/source/constant/languages";
 
 function Chapter () {
 

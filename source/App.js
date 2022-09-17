@@ -8,8 +8,8 @@ import "/style/index.css";
 import React from "react";
 import ChapterIndexContext from "./context/ChapterIndexContext";
 import LanguageIndexContext from "./context/LanguageIndexContext";
-import Header from "./component/header/index";
-import Main from "./component/main/index";
+import Header from "./component/Header/index";
+import Main from "./component/Main/index";
 
 function App () {
 

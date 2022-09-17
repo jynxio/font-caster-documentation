@@ -17,7 +17,7 @@
 /* 重置：仅设定使用到的元素。 */
 /* ------------------------------------------------------------------------------------------------- */
 html, body,
-header, section, article, aside, div,
+header, nav, section, article, aside, div,
 h1, h2, h3, h4, h5, h6, p,
 table, thead, tbody, th, tr, td,
 ol, ul, li,
@@ -80,7 +80,10 @@ blockquote {
 
 /* header */
 /* ------------------------------------------------------------------------------------------------- */
-header {
+
+/* header > nav.desktop */
+/* ------------------------------------------------------------------------------------------------- */
+header > nav.desktop {
     display: flex;
     position: sticky;
     top: 0;
@@ -93,76 +96,78 @@ header {
     background-color: var( --white );
 }
 
-/* header > chapter */
-/* ------------------------------------------------------------------------------------------------- */
-header > section.chapter {
+@media ( max-width: 60ch ) {
+    header > nav.desktop {
+        display: none;
+    }
+}
+
+/* chapter */
+header > nav.desktop > section.chapter {
     display: flex;
     align-items: center;
     margin-inline-end: auto;
 }
 
-header > section.chapter > span {
+header > nav.desktop > section.chapter > span {
     margin-inline: 1rem;
     cursor: pointer;
 }
 
-header > section.chapter > span:first-child {
+header > nav.desktop > section.chapter > span:first-child {
     margin-inline-start: 0;
 }
 
-header > section.chapter > span:last-child {
+header > nav.desktop > section.chapter > span:last-child {
     margin-inline-end: 0;
 }
 
-header > section.chapter > span.unselected {
+header > nav.desktop > section.chapter > span.unselected {
     color: var( --medium-grey )
 }
 
-header > section.chapter > span.selected,
-header > section.chapter > span.unselected:hover {
+header > nav.desktop > section.chapter > span.selected,
+header > nav.desktop > section.chapter > span.unselected:hover {
     color: var( --dark-grey );
 }
 
-/* header > icon */
-/* ------------------------------------------------------------------------------------------------- */
-header > section.icon {
+/* icon */
+header > nav.desktop > section.icon {
     display: flex;
     align-items: center;
     margin-inline-start: auto;
 }
 
-header > section.icon > button {
+header > nav.desktop > section.icon > button {
     margin-inline: 0.5rem;
     line-height: 1;
     cursor: pointer;
 }
 
-header > section.icon > button:first-child {
+header > nav.desktop > section.icon > button:first-child {
     margin-inline-start: 0;
 }
 
-header > section.icon > button:last-child {
+header > nav.desktop > section.icon > button:last-child {
     margin-inline-end: 0;
 }
 
-/* github & language */
-header > section.icon > button:nth-child( -n+2 ) {
+header > nav.desktop > section.icon > button:nth-child( -n+2 ) {
     inline-size: 1.25rem;
     block-size: 1.25rem;
 }
 
-header > section.icon > button:nth-child( -n+2 ) > svg {
+header > nav.desktop > section.icon > button:nth-child( -n+2 ) > svg {
     inline-size: 100%;
     block-size: 100%;
     fill: var( --medium-grey );
 }
 
-header > section.icon > button:nth-child( -n+2 ):hover > svg {
+header > nav.desktop > section.icon > button:nth-child( -n+2 ):hover > svg {
     fill: var( --dark-grey );
 }
 
-/* theme */
-header > section.icon > button:nth-child( 3 ) {
+header > nav.desktop > section.icon > button:nth-child( 3 ) {
     position: relative;
     inline-size: calc( 2rem + 6px );
     block-size: calc( 1rem + 6px );
@@ -171,11 +176,11 @@ header > section.icon > button:nth-child( 3 ) {
     background-color: var( --light-grey );
 }
 
-header > section.icon > button:nth-child( 3 ):hover {
+header > nav.desktop > section.icon > button:nth-child( 3 ):hover {
     border-color: var( --dark-grey );
 }
 
-header > section.icon > button:nth-child( 3 ) > span {
+header > nav.desktop > section.icon > button:nth-child( 3 ) > span {
     display: inline-block;
     position: absolute;
     top: 50%;
@@ -186,15 +191,15 @@ header > section.icon > button:nth-child( 3 ) > span {
     background-color: var( --white );
 }
 
-header > section.icon > button:nth-child( 3 ) > span.light {
+header > nav.desktop > section.icon > button:nth-child( 3 ) > span.light {
     transform: translate( 2px, -50% );
 }
 
-header > section.icon > button:nth-child( 3 ) > span.dark {
+header > nav.desktop > section.icon > button:nth-child( 3 ) > span.dark {
     transform: translate( calc( 1rem + 2px ), -50% );
 }
 
-header > section.icon > button:nth-child( 3 ) > span > svg {
+header > nav.desktop > section.icon > button:nth-child( 3 ) > span > svg {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -204,23 +209,22 @@ header > section.icon > button:nth-child( 3 ) > span > svg {
     transform: translate( -50%, -50% );
 }
 
-header > section.icon > button:nth-child( 3 ):hover > span > svg {
+header > nav.desktop > section.icon > button:nth-child( 3 ):hover > span > svg {
     fill: var( --dark-grey );
 }
 
-header > section.icon > button:nth-child( 3 ) > span.light > svg.sun,
-header > section.icon > button:nth-child( 3 ) > span.dark > svg.moon {
+header > nav.desktop > section.icon > button:nth-child( 3 ) > span.light > svg.sun,
+header > nav.desktop > section.icon > button:nth-child( 3 ) > span.dark > svg.moon {
     visibility: visible;
 }
 
-header > section.icon > button:nth-child( 3 ) > span.dark > svg.sun,
-header > section.icon > button:nth-child( 3 ) > span.light > svg.moon {
+header > nav.desktop > section.icon > button:nth-child( 3 ) > span.dark > svg.sun,
+header > nav.desktop > section.icon > button:nth-child( 3 ) > span.light > svg.moon {
     visibility: hidden;
 }
 
-/* header > language */
-/* ------------------------------------------------------------------------------------------------- */
-header > section.language {
+/* language */
+header > nav.desktop > section.language {
     position: fixed;
     top: 3.5rem;
     right: 0.5rem;
@@ -228,7 +232,7 @@ header > section.language {
     border-radius: var( --border-radius );
 }
 
-header > section.language > div {
+header > nav.desktop > section.language > div {
     padding-inline: 1rem;
     padding-block: 0.5rem;
     color: var( --medium-grey );
@@ -237,11 +241,11 @@ header > section.language > div {
     cursor: pointer;
 }
 
-header > section.language > div:hover {
+header > nav.desktop > section.language > div:hover {
     color: var( --dark-grey );
 }
 
-header > section.language > hr {
+header > nav.desktop > section.language > hr {
     inline-size: 100%;
     block-size: 1px;
     padding: 0;
@@ -253,11 +257,11 @@ header > section.language > hr {
 /* main */
 /* ------------------------------------------------------------------------------------------------- */
 
-
 /* main > article */
 /* ------------------------------------------------------------------------------------------------- */
 main > article {
-    max-inline-size: 66ch;
+    max-inline-size: 70ch;
+    padding-inline: 2ch;
     padding-block: var( --h2-font-size );
     margin-inline: auto;
 }

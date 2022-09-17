@@ -1,9 +1,6 @@
 /* js */
 import React from "react";
-import LanguageIndexContext from "../../../../context/LanguageIndexContext";
-
-/* data */
-import LANGUAGES from "../../../../constant/languages";
+import LanguageIndexContext from "/source/context/LanguageIndexContext";
 
 function Language ( { visible, setVisible } ) {
 
