@@ -1,24 +1,33 @@
 /* js */
 import React from "react";
+import Chapter from "./component/Chapter";
+import Github from "./component/Github";
+import Language from "./component/Language";
+import Theme from "./component/Theme";
 
 function NavMobile () {
 
-    const [ spread, setSpread ] = React.useState( false );
+    const [ spread, setSpread ] = React.useState( true );
 
     return (
         <nav className={ `mobile ${ spread ? "spread" : "shrink" }` }>
             <section className={ "switch" }>
-                <button onClick={ handleSwitchClick }>
+                <button onClick={ handleClick }>
                     <div></div>
                     <div></div>
                     <div></div>
                 </button>
             </section>
-            <section className={ "chapter" }></section>
+            <section className={ "menu" }>
+                <Chapter setSpread={ setSpread }/>
+                <Github/>
+                <Language/>
+                <Theme/>
+            </section>
         </nav>
     );
 
-    function handleSwitchClick () {
+    function handleClick () {
 
         setSpread( previous_spread => ! previous_spread  );
 
