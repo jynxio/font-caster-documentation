@@ -8,36 +8,41 @@ import "/style/index.css";
 import React from "react";
 import ChapterIndexContext from "./context/ChapterIndexContext";
 import LanguageIndexContext from "./context/LanguageIndexContext";
+import ThemeIndexContext from "./context/ThemeIndexContext";
 import Header from "./component/Header/index";
 import Main from "./component/Main/index";
 
 function App () {
 
-    const initial_language_index = 0;
+    const initial_theme_index = 0;
     const initial_chapter_index = 0;
+    const initial_language_index = 0;
 
+    const ThemeIndexContextProvider = useTheme( initial_theme_index );
     const ChapterIndexContextProvider = useChapter( initial_chapter_index );
     const LanguageIndexContextProvider = useLanguage( initial_language_index );
 
     return (
-        <ChapterIndexContextProvider>
-            <LanguageIndexContextProvider>
-                <Header/>
-                <Main/>
-            </LanguageIndexContextProvider>
-        </ChapterIndexContextProvider>
+        <ThemeIndexContextProvider>
+            <ChapterIndexContextProvider>
+                <LanguageIndexContextProvider>
+                    <Header/>
+                    <Main/>
+                </LanguageIndexContextProvider>
+            </ChapterIndexContextProvider>
+        </ThemeIndexContextProvider>
     );
 
 }
 
-function useChapter ( initial_chapter ) {
+function useTheme ( initial_index ) {
 
-    return function ChapterIndexContextProvider ( property ) {
+    return function ThemeIndexContextProvider ( property ) {
 
         return (
-            <ChapterIndexContext.Provider
-                value={ React.useState( initial_chapter ) }
+            <ThemeIndexContext.Provider
                 { ... property }
+                value={ React.useState( initial_index ) }
             />
         );
 
@@ -45,14 +50,29 @@ function useChapter ( initial_chapter ) {
 
 }
 
-function useLanguage ( initial_language ) {
+function useChapter ( initial_index ) {
+
+    return function ChapterIndexContextProvider ( property ) {
+
+        return (
+            <ChapterIndexContext.Provider
+                { ... property }
+                value={ React.useState( initial_index ) }
+            />
+        );
+
+    }
+
+}
+
+function useLanguage ( initial_index ) {
 
     return function LanguageIndexContextProvider ( property ) {
 
         return (
             <LanguageIndexContext.Provider
-                value={ React.useState( initial_language ) }
                 { ... property }
+                value={ React.useState( initial_index ) }
             />
         );
 
