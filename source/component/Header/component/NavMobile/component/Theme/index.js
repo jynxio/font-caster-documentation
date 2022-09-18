@@ -1,10 +1,15 @@
+/* js */
 import React from "react";
 import LanguageIndexContext from "/source/context/LanguageIndexContext";
 import ThemeIndexContext from "/source/context/ThemeIndexContext";
 
+/* data */
+import THEMES from "/source/constant/themes";
+
 function Theme () {
 
     const [ language_index ] = React.useContext( LanguageIndexContext );
+    const [ , setThemeIndex ] = React.useContext( ThemeIndexContext );
 
     return (
         <section className={ "theme" } onClick={ handleClick }>
@@ -14,19 +19,27 @@ function Theme () {
         </section>
     );
 
-    function handleClick () {}
+    function handleClick ( event ) {
+
+        if ( event.target.nodeName.toLowerCase() !== "button" ) return;
+
+        const index = + event.target.getAttribute( "data-index" );
+
+        setThemeIndex( index );
+
+    }
 
 }
 
 function EnglishTheme () {
 
-    const [ theme_index, setThemeIndex ] = React.useContext( ThemeIndexContext );
-    // TODO
+    const [ theme_index ] = React.useContext( ThemeIndexContext );
+
     return (
-        <span>
-            <button>Light</button>
+        <span className={ THEMES[ theme_index ] }>
+            <button  data-index={ 0 }>Light</button>
             <hr/>
-            <button>Dark</button>
+            <button  data-index={ 1 }>Dark</button>
         </span>
     );
 
@@ -34,7 +47,15 @@ function EnglishTheme () {
 
 function ChineseTheme () {
 
-    return <span><button>浅色</button><hr/><button>深色</button></span>;
+    const [ theme_index ] = React.useContext( ThemeIndexContext );
+
+    return (
+        <span className={ THEMES[ theme_index ] }>
+            <button data-index={ 0 }>浅色</button>
+            <hr/>
+            <button data-index={ 1 }>深色</button>
+        </span>
+    );
 
 }
 

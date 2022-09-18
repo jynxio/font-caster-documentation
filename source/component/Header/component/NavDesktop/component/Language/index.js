@@ -10,9 +10,9 @@ function Language ( { visible, setVisible } ) {
 
     return (
         <section className={ "language" } onClick={ handleClick }>
-            <div>English</div>
+            <div className={ language_index === 0 ? "selected" : "unselected" }>English</div>
             <hr/>
-            <div>简体中文</div>
+            <div className={ language_index === 1 ? "selected" : "unselected" }>简体中文</div>
         </section>
     );
 

@@ -7,7 +7,7 @@ import Theme from "./component/Theme";
 
 function NavMobile () {
 
-    const [ spread, setSpread ] = React.useState( true );
+    const [ spread, setSpread ] = React.useState( false );
 
     return (
         <nav className={ `mobile ${ spread ? "spread" : "shrink" }` }>

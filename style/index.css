@@ -82,8 +82,9 @@ blockquote {
 /* ------------------------------------------------------------------------------------------------- */
 header {
     position: sticky;
-    top: 0;
+    inline-size: 100%;
     left: 0;
+    top: 0;
     z-index: 999;
 }
 
@@ -221,7 +222,13 @@ header > nav.mobile > section.menu > section.language > div > span > hr {
     cursor: default;
 }
 
-header > nav.mobile > section.menu > section.language > div > span > button.selected {
+header > nav.mobile > section.menu > section.theme > div > span.light > button:first-of-type,
+header > nav.mobile > section.menu > section.language > div > span.english > button:first-of-type {
+    color: var( --dark-grey );
+}
+
+header > nav.mobile > section.menu > section.theme > div > span.dark > button:last-of-type,
+header > nav.mobile > section.menu > section.language > div > span.chinese > button:last-of-type {
     color: var( --dark-grey );
 }
 
@@ -366,10 +373,18 @@ header > nav.desktop > section.language {
     border-radius: var( --border-radius );
 }
 
+header > nav.desktop > section.language > hr {
+    inline-size: 100%;
+    block-size: 1px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: var( --light-grey );
+}
+
 header > nav.desktop > section.language > div {
     padding-inline: 1rem;
     padding-block: 0.5rem;
-    color: var( --medium-grey );
     font-size: 80%;
     text-align: center;
     cursor: pointer;
@@ -379,13 +394,12 @@ header > nav.desktop > section.language > div:hover {
     color: var( --dark-grey );
 }
 
-header > nav.desktop > section.language > hr {
-    inline-size: 100%;
-    block-size: 1px;
-    padding: 0;
-    margin: 0;
-    border: none;
-    background-color: var( --light-grey );
+header > nav.desktop > section.language > div.unselected {
+    color: var( --medium-grey );
+}
+
+header > nav.desktop > section.language > div.selected {
+    color: var( --dark-grey );
 }
 
 /* main */
