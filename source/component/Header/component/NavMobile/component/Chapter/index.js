@@ -21,10 +21,13 @@ function Chapter ( { setSpread } ) {
             { chapters.map( ( item, index ) => (
                 <div
                     key={ item }
-                    data-index={ index }
-                    className={ item === chapter ? "selected" : "unselected" }
                 >
-                    { item }
+                    <span
+                        data-index={ index }
+                        className={ item === chapter ? "selected" : "unselected" }
+                    >
+                        { item }
+                    </span>
                 </div>
             ) ) }
         </section>
@@ -32,7 +35,7 @@ function Chapter ( { setSpread } ) {
 
     function handleClick ( event ) {
 
-        if ( event.target.nodeName.toLowerCase() !== "div" ) return;
+        if ( event.target.nodeName.toLowerCase() !== "span" ) return;
 
         const index = + event.target.getAttribute( "data-index" );
 

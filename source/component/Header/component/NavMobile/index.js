@@ -21,8 +21,8 @@ function NavMobile () {
             <section className={ "menu" }>
                 <Chapter setSpread={ setSpread }/>
                 <Github/>
-                <Language/>
                 <Theme/>
+                <Language/>
             </section>
         </nav>
     );

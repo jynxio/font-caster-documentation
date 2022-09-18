@@ -7,12 +7,13 @@ function Theme () {
 
     return (
         <section className={ "theme" } onClick={ handleClick }>
-            {
-                language_index === 0 && <><button>Light</button><button>Dark</button></>
-            }
-            {
-                language_index === 1 && <><button>浅色</button><button>深色</button></>
-            }
+            <div>
+                {
+                    language_index === 0
+                        ? <span><button>Light</button><hr/><button>Dark</button></span>
+                        : <span><button>浅色</button><hr/><button>深色</button></span>
+                }
+            </div>
         </section>
     );
 

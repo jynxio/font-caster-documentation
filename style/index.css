@@ -21,7 +21,7 @@ header, nav, section, article, aside, div,
 h1, h2, h3, h4, h5, h6, p,
 table, thead, tbody, th, tr, td,
 ol, ul, li,
-a, span, strong, button
+a, span, strong, button,
 pre, code,
 blockquote {
     color: var( --dark-grey );
@@ -175,6 +175,55 @@ header > nav.mobile > section.switch > button:hover > div:nth-child( 3 ) {
 }
 
 /* menu */
+header > nav.mobile > section.menu {
+    display: flex;
+    flex-direction: column;
+    margin-block-start: 3rem;
+}
+
+header > nav.mobile > section.menu > section > div {
+    margin-block: 0.35em;
+    text-align: center;
+}
+
+header > nav.mobile > section.menu > section > div > span,
+header > nav.mobile > section.menu > section > div > span > button {
+    color: var( --medium-grey );
+}
+
+header > nav.mobile > section.menu > section > div > span:hover,
+header > nav.mobile > section.menu > section > div > span > button:hover {
+    color: var( --dark-grey );
+}
+
+header > nav.mobile > section.menu > section.chapter > div > span.selected {
+    color: var( --dark-grey );
+}
+
+header > nav.mobile > section.menu > section.chapter > div > span,
+header > nav.mobile > section.menu > section.github > div > span,
+header > nav.mobile > section.menu > section.theme > div > span > button,
+header > nav.mobile > section.menu > section.language > div > span > button {
+    cursor: pointer;
+}
+
+header > nav.mobile > section.menu > section.theme > div > span > hr,
+header > nav.mobile > section.menu > section.language > div > span > hr {
+    /* reset */
+    display: inline;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    /* diy */
+    border-inline-start: 1px solid var( --medium-grey );
+    margin-inline: 0.5em;
+    cursor: default;
+}
+
+header > nav.mobile > section.menu > section.language > div > span > button.selected {
+    color: var( --dark-grey );
+}
 
 /* header > nav.desktop */
 /* ------------------------------------------------------------------------------------------------- */

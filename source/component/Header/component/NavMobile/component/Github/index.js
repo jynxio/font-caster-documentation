@@ -3,7 +3,9 @@ import React from "react";
 function Github () {
 
     return (
-        <section className={ "github" } onClick={ handleClick }>GitHub</section>
+        <section className={ "github" }>
+            <div><span  onClick={ handleClick }>GitHub</span></div>
+        </section>
     );
 
     function handleClick () {
