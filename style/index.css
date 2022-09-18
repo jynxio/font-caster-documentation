@@ -111,18 +111,15 @@ header {
 header > nav.mobile {
     overflow-y: hidden;
     inline-size: 100%;
-    padding-inline: 2rem;
     background-color: var( --white );
 }
 
 header > nav.mobile.shrink {
     block-size: 3rem;
-    border-block-end: 1px solid var( --light-grey );
 }
 
 header > nav.mobile.spread {
     block-size: 100vh;
-    border: none;
 }
 
 /* switch */
@@ -130,55 +127,87 @@ header > nav.mobile > section.switch {
     display: flex;
     align-items: center;
     inline-size: 100%;
-    block-size: calc( 3rem - 1px );
+    block-size: 3rem;
+    padding-inline: 2rem;
+    border-block-end: 1px solid var( --light-grey );
 }
 
 header > nav.mobile > section.switch > button {
+    position: relative;
     inline-size: 1.25rem;
     block-size: 1.25rem;
     margin-inline-start: auto;
     cursor: pointer;
 }
 
-header > nav.mobile > section.switch > button > div {
+/* switch (shrink) */
+header > nav.mobile.shrink > section.switch > button > div {
     block-size: 2px;
     margin-inline-start: auto;
     background-color: var( --medium-grey );
 }
 
-header > nav.mobile > section.switch > button:hover > div {
+header > nav.mobile.shrink > section.switch > button:hover > div {
     background-color: var( --dark-grey );
 }
 
-header > nav.mobile > section.switch > button > div:nth-child( 1 ) {
+header > nav.mobile.shrink > section.switch > button > div:nth-child( 1 ) {
     inline-size: 80%;
 }
 
-header > nav.mobile > section.switch > button > div:nth-child( 2 ) {
+header > nav.mobile.shrink > section.switch > button > div:nth-child( 2 ) {
     inline-size: 40%;
     margin-block: 4px;
 }
 
-header > nav.mobile > section.switch > button > div:nth-child( 3 ) {
+header > nav.mobile.shrink > section.switch > button > div:nth-child( 3 ) {
     inline-size: 60%;
 }
 
-header > nav.mobile > section.switch > button:hover > div:nth-child( 1 ) {
+header > nav.mobile.shrink > section.switch > button:hover > div:nth-child( 1 ) {
     inline-size: 60%;
 }
 
-header > nav.mobile > section.switch > button:hover > div:nth-child( 2 ) {
+header > nav.mobile.shrink > section.switch > button:hover > div:nth-child( 2 ) {
     inline-size: 80%;
 }
 
-header > nav.mobile > section.switch > button:hover > div:nth-child( 3 ) {
+header > nav.mobile.shrink > section.switch > button:hover > div:nth-child( 3 ) {
     inline-size: 40%;
+}
+
+/* switch (spread) */
+header > nav.mobile.spread > section.switch > button > div {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    inline-size: 100%;
+    block-size: 2px;
+    background-color: var( --medium-grey );
+}
+
+header > nav.mobile.spread > section.switch > button:hover > div {
+    background-color: var( --dark-grey );
+}
+
+header > nav.mobile.spread > section.switch > button > div:nth-child( 2 ) {
+    display: none;
+}
+
+header > nav.mobile.spread > section.switch > button > div:nth-child( 1 ) {
+    transform: translateY( -50% ) rotate( 45deg );
+}
+
+header > nav.mobile.spread > section.switch > button > div:nth-child( 3 ) {
+    transform: translateY( -50% ) rotate( -45deg );
 }
 
 /* menu */
 header > nav.mobile > section.menu {
     display: flex;
     flex-direction: column;
+    block-size: calc( 100vh - 3rem );
+    padding-inline: 2rem;
     margin-block-start: 3rem;
 }
 

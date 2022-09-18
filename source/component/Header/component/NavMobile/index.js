@@ -19,7 +19,7 @@ function NavMobile () {
                 </button>
             </section>
             <section className={ "menu" }>
-                <Chapter setSpread={ setSpread }/>
+                <Chapter/>
                 <Github/>
                 <Theme/>
                 <Language/>

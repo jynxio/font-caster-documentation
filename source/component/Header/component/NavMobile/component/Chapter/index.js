@@ -7,7 +7,7 @@ import LanguageIndexContext from "/source/context/LanguageIndexContext";
 import CHAPTERS from "/source/constant/chapters";
 import LANGUAGES from "/source/constant/languages";
 
-function Chapter ( { setSpread } ) {
+function Chapter () {
 
     const [ language_index ] = React.useContext( LanguageIndexContext );
     const [ chapter_index, setChapterIndex ] = React.useContext( ChapterIndexContext );
@@ -39,7 +39,6 @@ function Chapter ( { setSpread } ) {
 
         const index = + event.target.getAttribute( "data-index" );
 
-        setSpread( false );
         setChapterIndex( index );
 
     }
