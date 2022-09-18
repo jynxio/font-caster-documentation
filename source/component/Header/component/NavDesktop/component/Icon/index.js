@@ -1,5 +1,9 @@
+/* js */
 import React from "react";
 import ThemeIndexContext from "/source/context/ThemeIndexContext";
+
+/* data */
+import THEMES from "/source/constant/themes";
 
 function Icon ( { setLanguageVisible } ) {
 
@@ -47,8 +51,8 @@ function LanguageIcon ( { setLanguageVisible } ) {
 
 function ThemeIcon () {
 
-    const [ theme, setTheme ] = React.useState( "light" );
-    const [ theme_index ] = React.useContext( ThemeIndexContext );
+    const [ theme_index, setThemeIndex ] = React.useContext( ThemeIndexContext );
+    const theme = THEMES[ theme_index ];
 
     return (
         <button className={ "theme-icon" } onClick={ handleClick }>
@@ -61,7 +65,9 @@ function ThemeIcon () {
 
     function handleClick () {
 
-        setTheme( previous_theme => previous_theme === "light" ? "dark" : "light" );
+        const next_theme_index = theme_index === 0 ? 1 : 0;
+
+        setThemeIndex( next_theme_index );
 
     }
 
