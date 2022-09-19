@@ -1,10 +1,24 @@
 /* 全局变量 */
 /* ------------------------------------------------------------------------------------------ */
 :root {
-    --white: #ffffff;
-    --light-grey: #eeeeee;
-    --medium-grey: #aaaaaa;
-    --dark-grey: #444444;
+    --background-color: #ffffff;
+    --light-color: #eeeeee;
+    --medium-color: #aaaaaa;
+    --heavy-color: #444444;
+}
+
+:root.light {
+    --background-color: #ffffff;
+    --light-color: #eeeeee;
+    --medium-color: #aaaaaa;
+    --heavy-color: #444444;
+}
+
+:root.dark {
+    --background-color: #000000;
+    --light-color: #222222;
+    --medium-color: #555555;
+    --heavy-color: #bbbbbb;
 }
 
 :root {
@@ -24,7 +38,7 @@ ol, ul, li,
 a, span, strong, button,
 pre, code,
 blockquote {
-    color: var( --dark-grey );
+    color: var( --heavy-color );
     font-family: "IBM Plex Serif - 300";
     font-weight: 300;
     font-size: clamp( 16px, 8px + 2vw, 18px );
@@ -33,6 +47,7 @@ blockquote {
 }
 
 html {
+    background-color: var( --background-color );
     scroll-behavior: smooth;
 }
 
@@ -111,7 +126,7 @@ header {
 header > nav.mobile {
     overflow-y: hidden;
     inline-size: 100%;
-    background-color: var( --white );
+    background-color: var( --background-color );
 }
 
 header > nav.mobile.shrink {
@@ -129,7 +144,7 @@ header > nav.mobile > section.switch {
     inline-size: 100%;
     block-size: 3rem;
     padding-inline: 2rem;
-    border-block-end: 1px solid var( --light-grey );
+    border-block-end: 1px solid var( --light-color );
 }
 
 header > nav.mobile > section.switch > button {
@@ -144,11 +159,11 @@ header > nav.mobile > section.switch > button {
 header > nav.mobile.shrink > section.switch > button > div {
     block-size: 2px;
     margin-inline-start: auto;
-    background-color: var( --medium-grey );
+    background-color: var( --medium-color );
 }
 
 header > nav.mobile.shrink > section.switch > button:hover > div {
-    background-color: var( --dark-grey );
+    background-color: var( --heavy-color );
 }
 
 header > nav.mobile.shrink > section.switch > button > div:nth-child( 1 ) {
@@ -183,11 +198,11 @@ header > nav.mobile.spread > section.switch > button > div {
     left: 0;
     inline-size: 100%;
     block-size: 2px;
-    background-color: var( --medium-grey );
+    background-color: var( --medium-color );
 }
 
 header > nav.mobile.spread > section.switch > button:hover > div {
-    background-color: var( --dark-grey );
+    background-color: var( --heavy-color );
 }
 
 header > nav.mobile.spread > section.switch > button > div:nth-child( 2 ) {
@@ -218,16 +233,16 @@ header > nav.mobile > section.menu > section > div {
 
 header > nav.mobile > section.menu > section > div > span,
 header > nav.mobile > section.menu > section > div > span > button {
-    color: var( --medium-grey );
+    color: var( --medium-color );
 }
 
 header > nav.mobile > section.menu > section > div > span:hover,
 header > nav.mobile > section.menu > section > div > span > button:hover {
-    color: var( --dark-grey );
+    color: var( --heavy-color );
 }
 
 header > nav.mobile > section.menu > section.chapter > div > span.selected {
-    color: var( --dark-grey );
+    color: var( --heavy-color );
 }
 
 header > nav.mobile > section.menu > section.chapter > div > span,
@@ -246,19 +261,19 @@ header > nav.mobile > section.menu > section.language > div > span > hr {
     border: none;
     outline: none;
     /* diy */
-    border-inline-start: 1px solid var( --medium-grey );
+    border-inline-start: 1px solid var( --medium-color );
     margin-inline: 0.5em;
     cursor: default;
 }
 
 header > nav.mobile > section.menu > section.theme > div > span.light > button:first-of-type,
 header > nav.mobile > section.menu > section.language > div > span.english > button:first-of-type {
-    color: var( --dark-grey );
+    color: var( --heavy-color );
 }
 
 header > nav.mobile > section.menu > section.theme > div > span.dark > button:last-of-type,
 header > nav.mobile > section.menu > section.language > div > span.chinese > button:last-of-type {
-    color: var( --dark-grey );
+    color: var( --heavy-color );
 }
 
 /* header > nav.desktop */
@@ -268,8 +283,8 @@ header > nav.desktop {
     inline-size: 100%;
     block-size: 3rem;
     padding-inline: 2rem;
-    border-block-end: 1px solid var( --light-grey );
-    background-color: var( --white );
+    border-block-end: 1px solid var( --light-color );
+    background-color: var( --background-color );
 }
 
 /* chapter */
@@ -293,12 +308,12 @@ header > nav.desktop > section.chapter > span:last-child {
 }
 
 header > nav.desktop > section.chapter > span.unselected {
-    color: var( --medium-grey )
+    color: var( --medium-color )
 }
 
 header > nav.desktop > section.chapter > span.selected,
 header > nav.desktop > section.chapter > span.unselected:hover {
-    color: var( --dark-grey );
+    color: var( --heavy-color );
 }
 
 /* icon */
@@ -330,24 +345,24 @@ header > nav.desktop > section.icon > button:nth-child( -n+2 ) {
 header > nav.desktop > section.icon > button:nth-child( -n+2 ) > svg {
     inline-size: 100%;
     block-size: 100%;
-    fill: var( --medium-grey );
+    fill: var( --medium-color );
 }
 
 header > nav.desktop > section.icon > button:nth-child( -n+2 ):hover > svg {
-    fill: var( --dark-grey );
+    fill: var( --heavy-color );
 }
 
 header > nav.desktop > section.icon > button:nth-child( 3 ) {
     position: relative;
     inline-size: calc( 2rem + 6px );
     block-size: calc( 1rem + 6px );
-    border: 1px solid var( --medium-grey );
+    border: 1px solid var( --medium-color );
     border-radius: 999rem;
-    background-color: var( --light-grey );
+    background-color: var( --light-color );
 }
 
 header > nav.desktop > section.icon > button:nth-child( 3 ):hover {
-    border-color: var( --dark-grey );
+    border-color: var( --heavy-color );
 }
 
 header > nav.desktop > section.icon > button:nth-child( 3 ) > span {
@@ -358,7 +373,7 @@ header > nav.desktop > section.icon > button:nth-child( 3 ) > span {
     inline-size: 1rem;
     block-size: 1rem;
     border-radius: 999rem;
-    background-color: var( --white );
+    background-color: var( --background-color );
 }
 
 header > nav.desktop > section.icon > button:nth-child( 3 ) > span.light {
@@ -375,12 +390,12 @@ header > nav.desktop > section.icon > button:nth-child( 3 ) > span > svg {
     left: 50%;
     inline-size: 70%;
     block-size: 70%;
-    fill: var( --medium-grey );
+    fill: var( --medium-color );
     transform: translate( -50%, -50% );
 }
 
 header > nav.desktop > section.icon > button:nth-child( 3 ):hover > span > svg {
-    fill: var( --dark-grey );
+    fill: var( --heavy-color );
 }
 
 header > nav.desktop > section.icon > button:nth-child( 3 ) > span.light > svg.sun,
@@ -398,7 +413,7 @@ header > nav.desktop > section.language {
     position: fixed;
     top: 3.5rem;
     right: 0.5rem;
-    border: 1px solid var( --light-grey );
+    border: 1px solid var( --light-color );
     border-radius: var( --border-radius );
 }
 
@@ -408,7 +423,7 @@ header > nav.desktop > section.language > hr {
     padding: 0;
     margin: 0;
     border: none;
-    background-color: var( --light-grey );
+    background-color: var( --light-color );
 }
 
 header > nav.desktop > section.language > div {
@@ -419,16 +434,16 @@ header > nav.desktop > section.language > div {
     cursor: pointer;
 }
 
-header > nav.desktop > section.language > div:hover {
-    color: var( --dark-grey );
-}
-
 header > nav.desktop > section.language > div.unselected {
-    color: var( --medium-grey );
+    color: var( --medium-color );
 }
 
 header > nav.desktop > section.language > div.selected {
-    color: var( --dark-grey );
+    color: var( --heavy-color );
+}
+
+header > nav.desktop > section.language > div:hover {
+    color: var( --heavy-color );
 }
 
 /* main */
@@ -487,7 +502,7 @@ main > article ul > li:not(.check-li)::before {
     block-size: 0.5rem;
     margin-inline-start: -0.5rem;;
     border-radius: 999rem;
-    background-color: var( --medium-grey );
+    background-color: var( --medium-color );
     transform: translate( -100%, -50% );
 }
 
@@ -495,8 +510,8 @@ main > article ul > li:not(.check-li)::before {
 /* ------------------------------------------------------------------------------------------------- */
 main > article > blockquote {
     padding-inline: 0.5rem;
-    border-inline-start: 0.25rem solid var( --light-grey );
-    color: var( --medium-grey );
+    border-inline-start: 0.25rem solid var( --light-color );
+    color: var( --medium-color );
     font-size: 0.9rem;
 }
 
@@ -511,7 +526,7 @@ main > article > blockquote * {
 main > article code,
 main > article pre {
     border-radius: var( --border-radius );
-    background-color: var( --light-grey );
+    background-color: var( --light-color );
     font-family: "Fira Code - 300";
     font-weight: 300;
 }

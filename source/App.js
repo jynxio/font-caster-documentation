@@ -12,6 +12,9 @@ import ThemeIndexContext from "./context/ThemeIndexContext";
 import Header from "./component/Header/index";
 import Main from "./component/Main/index";
 
+/* data */
+import THEMES from "./constant/themes";
+
 function App () {
 
     const initial_theme_index = 0;
@@ -39,10 +42,18 @@ function useTheme ( initial_index ) {
 
     return function ThemeIndexContextProvider ( property ) {
 
+        const [ state, setState ] = React.useState( initial_index );
+
+        React.useLayoutEffect( _ => {
+
+            document.documentElement.className = THEMES[ state ];
+
+        }, [ state ] );
+
         return (
             <ThemeIndexContext.Provider
                 { ... property }
-                value={ React.useState( initial_index ) }
+                value={ [ state, setState ] }
             />
         );
 
