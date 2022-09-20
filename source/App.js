@@ -17,107 +17,92 @@ import THEMES from "./constant/themes";
 
 function App () {
 
-    const initial_theme_index = 0;
-    const initial_chapter_index = 0;
-    const initial_language_index = 0;
-
-    const ThemeIndexContextProvider = useTheme( initial_theme_index );
-    const ChapterIndexContextProvider = useChapter( initial_chapter_index );
-    const LanguageIndexContextProvider = useLanguage( initial_language_index );
-
     return (
-        <ThemeIndexContextProvider>
-            <ChapterIndexContextProvider>
-                <LanguageIndexContextProvider>
+        <ThemeIndexContextProvider initialValue={ 0 }>
+            <LanguageIndexContextProvider initialValue={ 0 }>
+                <ChapterIndexContextProvider initialValue={ 0 }>
                     <Header/>
                     <Main/>
-                </LanguageIndexContextProvider>
-            </ChapterIndexContextProvider>
+                </ChapterIndexContextProvider>
+            </LanguageIndexContextProvider>
         </ThemeIndexContextProvider>
     );
 
 }
 
-function useTheme ( initial_index ) {
+function ThemeIndexContextProvider ( property ) {
 
-    return function ThemeIndexContextProvider ( property ) {
+    const [ index, setIndex ] = useLocalStorage( "theme", property.initialValue );
 
-        let storage_index = + globalThis.localStorage.getItem( "font-caster-documentation-theme-index" );
+    React.useLayoutEffect( _ => {
 
-        if ( storage_index === null ) {
+        document.documentElement.className = THEMES[ index ];
 
-            storage_index = initial_index;
+    }, [ index ] );
 
-            globalThis.localStorage.setItem( "font-caster-documentation-theme-index", initial_index );
-
-        }
-
-        const [ state, setState ] = React.useState( storage_index );
-
-        React.useLayoutEffect( _ => {
-
-            document.documentElement.className = THEMES[ state ];
-
-        }, [ state ] );
-
-        React.useEffect( _ => {
-
-            globalThis.localStorage.setItem( "font-caster-documentation-theme-index", state );
-
-        }, [ state ] );
-
-        return (
-            <ThemeIndexContext.Provider
-                { ... property }
-                value={ [ state, setState ] }
-            />
-        );
-
-    }
+    return (
+        <ThemeIndexContext.Provider
+            value={ [ index, setIndex ] }
+            children={ property.children }
+        />
+    );
 
 }
 
-function useChapter ( initial_index ) {
+function LanguageIndexContextProvider ( property ) {
 
-    return function ChapterIndexContextProvider ( property ) {
+    const pair = useLocalStorage( "language", property.initialValue );
 
-        return (
-            <ChapterIndexContext.Provider
-                { ... property }
-                value={ React.useState( initial_index ) }
-            />
-        );
-
-    }
+    return (
+        <LanguageIndexContext.Provider
+            value={ pair }
+            children={ property.children }
+        />
+    );
 
 }
 
 function ChapterIndexContextProvider ( property ) {
 
-    const [ state, setState ] = React.useState( property.initialValue ); // TODO
+    const pair = React.useState( property.initialValue );
 
-    return <ChapterIndexContext.Provider/>;
-
-}
-
-function useLanguage ( initial_index ) {
-
-    return function LanguageIndexContextProvider ( property ) {
-
-        return (
-            <LanguageIndexContext.Provider
-                { ... property }
-                value={ React.useState( initial_index ) }
-            />
-        );
-
-    }
+    return (
+        <ChapterIndexContext.Provider
+            value={ pair }
+            children={ property.children }
+        />
+    );
 
 }
 
 function useLocalStorage ( key, initial_value ) {
 
-    
+    const storage = getStorage();
+    const [ index, setIndex ] = React.useState( storage?.[ key ] || initial_value );
+
+    React.useEffect( _ => {
+
+        const storage = getStorage();
+
+        setStorage( { ... storage, [ key ]: index } );
+
+    }, [ index ] );
+
+    return [ index, setIndex ];
+
+}
+
+function getStorage () {
+
+    return JSON.parse( globalThis.localStorage.getItem( "font-caster-documentation-storage" ) );
+
+}
+
+function setStorage ( value ) {
+
+    globalThis.localStorage.setItem( "font-caster-documentation-storage", JSON.stringify( value ) );
+
+    return value;
 
 }
 
