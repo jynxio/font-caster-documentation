@@ -509,7 +509,7 @@ main > article ul > li:not(.check-li)::before {
 /* main > blockquote */
 /* ------------------------------------------------------------------------------------------------- */
 main > article > blockquote {
-    padding-inline: 0.5rem;
+    padding-inline: 1rem;
     border-inline-start: 0.25rem solid var( --light-color );
     color: var( --medium-color );
     font-size: 0.9rem;
