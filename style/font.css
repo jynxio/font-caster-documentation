@@ -5,6 +5,7 @@
     font-weight: 300;
     font-display: swap;
     src: local( "IBM Plex Serif - 300" ),
+        url( "/static/font/ibmplexserif-light-300.woff2" ) format( "woff2" ),
         url( "/static/font/ibmplexserif-light-300.ttf" ) format( "truetype" );
 }
 
@@ -14,6 +15,7 @@
     font-weight: 600;
     font-display: swap;
     src: local( "IBM Plex Serif - 600" ),
+        url( "/static/font/ibmplexserif-semibold-600.woff2" ) format( "woff2" ),
         url( "/static/font/ibmplexserif-semibold-600.ttf" ) format( "truetype" );
 }
 
@@ -24,5 +26,6 @@
     font-weight: 300;
     font-display: swap;
     src: local( "Fira Code - 300" ),
+        url( "/static/font/firacode-light-300.woff2" ) format( "woff2" ),
         url( "/static/font/firacode-light-300.ttf" ) format( "truetype" );
 }
