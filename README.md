@@ -1,6 +1,6 @@
 # Overview
 
-Documentation for the font-caster
+Online documentation for the font-caster
 
 <br/>
 
