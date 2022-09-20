@@ -42,11 +42,27 @@ function useTheme ( initial_index ) {
 
     return function ThemeIndexContextProvider ( property ) {
 
-        const [ state, setState ] = React.useState( initial_index );
+        let storage_index = + globalThis.localStorage.getItem( "font-caster-documentation-theme-index" );
+
+        if ( storage_index === null ) {
+
+            storage_index = initial_index;
+
+            globalThis.localStorage.setItem( "font-caster-documentation-theme-index", initial_index );
+
+        }
+
+        const [ state, setState ] = React.useState( storage_index );
 
         React.useLayoutEffect( _ => {
 
             document.documentElement.className = THEMES[ state ];
+
+        }, [ state ] );
+
+        React.useEffect( _ => {
+
+            globalThis.localStorage.setItem( "font-caster-documentation-theme-index", state );
 
         }, [ state ] );
 
@@ -76,6 +92,14 @@ function useChapter ( initial_index ) {
 
 }
 
+function ChapterIndexContextProvider ( property ) {
+
+    const [ state, setState ] = React.useState( property.initialValue ); // TODO
+
+    return <ChapterIndexContext.Provider/>;
+
+}
+
 function useLanguage ( initial_index ) {
 
     return function LanguageIndexContextProvider ( property ) {
@@ -88,6 +112,12 @@ function useLanguage ( initial_index ) {
         );
 
     }
+
+}
+
+function useLocalStorage ( key, initial_value ) {
+
+    
 
 }
 
