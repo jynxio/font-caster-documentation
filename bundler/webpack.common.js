@@ -12,6 +12,7 @@ module.exports = {
             title: "practice-react",
             filename: "index.html",
             template: "./template/index.html",
+            favicon: "./static/favicon/favicon.ico",
         } ),
     ],
     module: {
